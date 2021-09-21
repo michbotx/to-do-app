@@ -3,34 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Todo app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">  
+  <title>To Do App | MichBot </title>
 </head>
+
+
 <body>
+  <container class="container">
+    <div class="header">
+      <div class="todo-top">
+        <h1 class="title">TODO</h1>
+        <img src="images/icon-moon.svg">
+      </div>
 
-  Todo
+      <div class="new-todo">
+        <form action="/" id="form">
+          <div class="circle"> </div>
+          <input type="text" id="todo-text" placeholder="Create a new todo.." name="todo">
+        </form>
+      </div>
+    </div>
 
-  <!-- Add dynamic number --> items left
+  
+<!-- 
+  <div class="info">
+    <span id="items-left"> dynamic number items left </span>
+    <span id="clr-completed">Clear Completed</span>
+  </div>
 
-  All
-  Active 
-  Completed
+  <div class="show-category">
+    <span id="all>">All</span>
+    <span id="active">Active</span> 
+    <span id="completed">Completed</span>
+  </div>
+    
+  <div class="reorder">
+    Drag and drop to reorder list
+  </div>
 
-  Clear Completed
 
-  Drag and drop to reorder list
+  </container>
 
+
+  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
 </body>
+
+
+
 </html>

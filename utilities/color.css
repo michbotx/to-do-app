@@ -1,0 +1,22 @@
+:root {
+
+    --hyperlink-blue:  hsl(220, 98%, 61%);
+    --bg-gradient: hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    
+    /* Light theme */
+
+    --bg-gray: hsl(0, 0%, 98%);
+    --icon-gray: hsl(236, 33%, 92%);
+    --blue-gray: hsl(233, 11%, 84%);
+    --dark-blue-gray: hsl(236, 9%, 61%);
+    --body-text-blue: hsl(235, 19%, 35%);
+
+    /* Dark Theme */
+    --bg-dark-blue: hsl(235, 21%, 11%);
+    --div-blue-desat: hsl(235, 24%, 19%);
+    --body-text-gray: hsl(234, 39%, 85%);
+    --light-gray-hover: hsl(236, 33%, 92%);
+    --dark-gray-blue: hsl(234, 11%, 52%);
+    --very-dark-gray-blue: hsl(233, 14%, 35%);
+    --near-black-blue: hsl(237, 14%, 26%);
+}

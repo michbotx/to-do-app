@@ -1,0 +1,49 @@
+@import url("/utilities/color.css");
+
+html {
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+
+}
+
+body {
+    text-align: center;
+    background-color: var(--bg-gray);
+    margin: 0 auto;
+}
+
+
+
+.header {
+    background-image: url(images/bg-mobile-light.jpg);
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+
+}
+
+
+/* 
+/* 
+.todo-top {
+    margin: 0;
+}
+ */ */
+
+.todo-top {
+    border: 1px solid red;
+    margin: 
+}
+.title {
+    margin: 0;
+    text-align: left;
+
+}
+
+/* Attribution */
+.attribution {
+    font-size: 11px; text-align: center;
+}
+.attribution a {
+   color: hsl(228, 45%, 44%); 
+}
