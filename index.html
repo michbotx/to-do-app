@@ -12,40 +12,54 @@
 </head>
 
 <body>
-  <img src="images/bg-mobile-light.jpg" class="hero-img">
+  <img src="images/bg-mobile-light.jpg" id="hero" class="hero-img">
   <div class="wrapper">
     <header> 
       <h1>TODO</h1>
-      <img class="moon" src="images/icon-moon.svg">
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="icon"></label>
+        <img class="moon" id="icon" src="images/icon-moon.svg">
+      </label>
+      </div>
     </header>
 
   <!-- TODO INPUT FIELD -->
-    <div class="todo-input">
-      <form action="/" id="form" class="todo-form">
-        <div class="todo-circle checked">
-          <img src="/images/icon-check.svg">
+    <section class="todo-container">
+      <div id="newTask">
+        <button class="checkBtn">
+          <img 
+            id="checkIcon" 
+            src="/images/icon-check.svg" 
+            alt="check-icon">
+        </button>
+        <input 
+          type="text" 
+          class="todo-text"  
+          placeholder="Create a new todo...">
         </div>
-        <input type="text" class="todo-text"  placeholder="Create a new todo...">
-      </form>
-    </div>
+    </section>
 
-
-  <div class="toDosWrapper">
-    <div class="toDosList">
-      <ul>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-      </ul>
+  <section class="tasksList">
+    <div class="task">
+      <div>
+        <button class="checkBtn">          
+          <img 
+            id="checkIcon" 
+            src="/images/icon-check.svg" 
+            alt="check-icon">
+      </button>
+      <span class="toDoText">Task Test</span>
+      </div>  
+      <img alt="deleteBtn" id="deleteBtn" src="images/icon-cross.svg">
     </div>
+    
 
     <div class="items-info">
       <span id="items-left"> 5 items left </span>
       <span id="clr-completed">Clear Completed</span>
     </div>
-  </div>
+  </section>
   
-
   <div class="show-category">
     <span id="all>">All</span>
     <span id="active">Active</span> 
@@ -62,9 +76,7 @@
   </div> 
   
 </div>
+<script src="app.js"></script>
 </body>
-
-
-
 
 </html>
