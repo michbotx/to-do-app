@@ -55,7 +55,7 @@ function createToDo(e) {
             <button class="checkBtn">          
                 <img 
                 id="checkIcon" 
-                src="/images/icon-check.svg" 
+                src="images/icon-check.svg" 
                 alt="check-icon"/>
             </button>
             <span class="toDoText">${newToDo}</span>
