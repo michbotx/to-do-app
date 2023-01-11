@@ -40,39 +40,31 @@ toggleSwitch.addEventListener("click",setTheme)
 // ----HANDLE INPUT ---- //
 
 const toDoText = document.querySelector(".todo-text")
-const toDoContainer = document.querySelector(".tasksList")
+const list = document.querySelector(".list")
 toDoText.addEventListener("change", createToDo)
 const toDoButtons = document.querySelectorAll(".checkBtn")
-const tasks = document.querySelectorAll(".task")
+const taskli = document.querySelectorAll(".task")
 const noTasksLeft = document.querySelector("#noTasksLeft")
+
+let tasks =[]
 
 function createToDo(e) {
     let newToDo = e.target.value
-    toDoContainer.innerHTML += `
-    <div class="task"}>
-    <div>
-      <button class="checkBtn">          
-        <img 
-          id="checkIcon" 
-          src="/images/icon-check.svg" 
-          alt="check-icon">
-        </button>
-        <span class="toDoText">${newToDo}</span>
-    </div>  
-    <img alt="deleteBtn" class="deleteBtn" src="images/icon-cross.svg">
-  </div>
-   `
+    list.innerHTML += `
+        <li class="task">
+            <button class="checkBtn">          
+                <img 
+                id="checkIcon" 
+                src="/images/icon-check.svg" 
+                alt="check-icon"/>
+            </button>
+            <span class="toDoText">${newToDo}</span>
+            <img alt="deleteBtn" class="deleteBtn" src="images/icon-cross.svg">
+        </li>`
     e.target.value = ""
-    toDoCheck();
-}
-
-function toDoCheck() {
-    let toDoCount
-    for (button of toDoButtons) {
-        button.checked ? toDoCount++ : toDoCount
-    }
-    noTasksNote() 
-
+    tasks.push(newToDo)
+    taskAmount()
+   noTasksNote() 
 }
 
 // STRIKE THROUGH IF COMPLETE
@@ -82,17 +74,27 @@ function toDoCheck() {
 //REMOVE IF CLICKED
 let deleteBtns = document.querySelectorAll(".deleteBtn")
 
-toDoContainer.addEventListener("click", (e) => {
+list.addEventListener("click", (e) => {
     if(e.target.classList.value === "deleteBtn") {
         e.target.parentNode.remove() 
+        tasks.length -= 1
     }
-    console.log(tasks.length)
+    taskAmount()
+    noTasksNote();
 })
 
 function noTasksNote() {
-    noTasksLeft.style.display = tasks.length >= 1 ?  "block" : "none"
+    noTasksLeft.style.display = tasks.length >= 1 
+    ? "none" 
+    : "block"
 }
+// ITEMS LEFT
+
+const itemsLeft = document.querySelector("#items-left")
 
 
-// STRIKE THROUGH IF COMPLETE
-
+function taskAmount() {
+    itemsLeft.innerHTML = tasks.length === 0 
+    ? "0 items left"
+    : `${tasks.length} items left`
+}

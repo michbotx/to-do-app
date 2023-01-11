@@ -97,45 +97,46 @@ h1 {
 
 /* TODOS LIST */
 
-.tasksList {
-    box-shadow: 5px 7px 10px var(--shadow);
+#listWrapper {
     background-color: var(--div-bg);
+    justify-content: space-between;
     border-radius: 10px;
-    /* padding: 10px; */
+    box-shadow: 5px 7px 10px var(--shadow);
 }
 
 .task {
   padding: 20px 25px;
-  justify-content: space-between;
   display:flex;
+  /* justify-content: space-between; */
   border-bottom: 1px solid var(--div-border);
   height: 50px;
   place-items: center;
   cursor: pointer;
+  background-color: var(--div-bg);
+  
+}
+
+.deleteBtn {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-left: auto;
 
 }
 .toDoText {
     margin-left: 10px;
     line-height: 1.5rem;
+    justify-self: start;
 }
 
 #noTasksLeft {
     padding: 25px 0;
-    background-color: var(--div-bg);
-    justify-content: space-between;
     text-align: center;
     font-size: 15px;
     line-height: 2rem;
-    border-radius: 10px 10px 0 0 ;
+
 }
 
-
-
-.deleteBtn {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-}
 
 /* ITEMS INFO */
 .items-info {
@@ -194,55 +195,3 @@ h1 {
     display: flex;
     align-items:center
 }
-
-
-/* 
-Label circle idea
-
-checkbox
-input[type=checkbox] {
-    display: none;
-}
-
-label {   
-    border: 1px solid gray;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    place-items: center;
-    position: relative;
-    gap: 15px;
-    margin-right: 15px;
-    left:0;
-    cursor: pointer;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-label::before {
-    background: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-    color: white;
-    content: " ";
-    padding: 0 3px;
-    border-radius: 50%;
-    position: relative;
-    width: 19px;
-    height: 19px;
-    text-align: center;
-    line-height: 28px;
-    transition-duration: 0.4s;
-    transform: scale(0);
-    border: 1px solid gray;
-}
-
-:checked+label::before {
-    content: "✓";
-    transform:  scale(1);
-}
-
-*/
