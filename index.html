@@ -35,30 +35,26 @@
         <input 
           type="text" 
           class="todo-text"  
-          placeholder="Create a new todo...">
-        </div>
+          placeholder="Create a new todo..."
+          value="">
+      </div>
     </section>
 
   <section class="tasksList">
-    <div class="task">
-      <div>
-        <button class="checkBtn">          
-          <img 
-            id="checkIcon" 
-            src="/images/icon-check.svg" 
-            alt="check-icon">
-      </button>
-      <span class="toDoText">Task Test</span>
-      </div>  
-      <img alt="deleteBtn" id="deleteBtn" src="images/icon-cross.svg">
-    </div>
-    
-
-    <div class="items-info">
-      <span id="items-left"> 5 items left </span>
-      <span id="clr-completed">Clear Completed</span>
-    </div>
+   
   </section>
+
+  <div id="noTasksLeft">
+    <p>	
+      &#127881;<strong>Woohoo!</strong><br> 
+        You're all done for the day!
+    </p>
+ </div>
+
+  <div class="items-info">
+    <span id="items-left"> 0 items left </span>
+    <span id="clr-completed">Clear Completed</span>
+  </div>
   
   <div class="show-category">
     <span id="all>">All</span>

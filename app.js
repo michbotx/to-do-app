@@ -33,3 +33,66 @@ function darkMode() {
 }
 
 toggleSwitch.addEventListener("click",setTheme)
+
+
+
+
+// ----HANDLE INPUT ---- //
+
+const toDoText = document.querySelector(".todo-text")
+const toDoContainer = document.querySelector(".tasksList")
+toDoText.addEventListener("change", createToDo)
+const toDoButtons = document.querySelectorAll(".checkBtn")
+const tasks = document.querySelectorAll(".task")
+const noTasksLeft = document.querySelector("#noTasksLeft")
+
+function createToDo(e) {
+    let newToDo = e.target.value
+    toDoContainer.innerHTML += `
+    <div class="task"}>
+    <div>
+      <button class="checkBtn">          
+        <img 
+          id="checkIcon" 
+          src="/images/icon-check.svg" 
+          alt="check-icon">
+        </button>
+        <span class="toDoText">${newToDo}</span>
+    </div>  
+    <img alt="deleteBtn" class="deleteBtn" src="images/icon-cross.svg">
+  </div>
+   `
+    e.target.value = ""
+    toDoCheck();
+}
+
+function toDoCheck() {
+    let toDoCount
+    for (button of toDoButtons) {
+        button.checked ? toDoCount++ : toDoCount
+    }
+    noTasksNote() 
+
+}
+
+// STRIKE THROUGH IF COMPLETE
+
+
+
+//REMOVE IF CLICKED
+let deleteBtns = document.querySelectorAll(".deleteBtn")
+
+toDoContainer.addEventListener("click", (e) => {
+    if(e.target.classList.value === "deleteBtn") {
+        e.target.parentNode.remove() 
+    }
+    console.log(tasks.length)
+})
+
+function noTasksNote() {
+    noTasksLeft.style.display = tasks.length >= 1 ?  "block" : "none"
+}
+
+
+// STRIKE THROUGH IF COMPLETE
+

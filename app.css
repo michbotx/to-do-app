@@ -70,6 +70,7 @@ h1 {
     background-color: var(--div-bg);
     margin-left: 15px;
     padding-top: 5px;
+    color: var(--body-text)
 }
 
 #newTask input:focus {
@@ -105,10 +106,9 @@ h1 {
 
 .task {
   padding: 20px 25px;
-  border-radius: 5px;
   justify-content: space-between;
   display:flex;
-  border-bottom: 1px solid var(--light-gray-hover);
+  border-bottom: 1px solid var(--div-border);
   height: 50px;
   place-items: center;
   cursor: pointer;
@@ -119,7 +119,19 @@ h1 {
     line-height: 1.5rem;
 }
 
-#deleteBtn {
+#noTasksLeft {
+    padding: 25px 0;
+    background-color: var(--div-bg);
+    justify-content: space-between;
+    text-align: center;
+    font-size: 15px;
+    line-height: 2rem;
+    border-radius: 10px 10px 0 0 ;
+}
+
+
+
+.deleteBtn {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -131,6 +143,8 @@ h1 {
     justify-content: space-between;
     color:var(--body-text);
     padding: 25px 20px;
+    background-color: var(--div-bg);
+    border-radius: 0 0 10px 10px
 }
 
 /* SHOW CATEGORIES */
@@ -149,6 +163,13 @@ h1 {
 .reorder {
     text-align: center;
     margin: 25px auto;
+}
+
+/* UTILITIES */
+
+
+.strike-through {
+    text-decoration: line-through;
 }
 
 /* HOVER STATES */
