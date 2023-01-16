@@ -4,7 +4,7 @@
 *:before,
 *:after {
     padding:0;
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -17,7 +17,6 @@ body {
     background-color: var(--bg-color);
     color: var(--body-text);
     margin: 0 auto;
-    max-width: 600px;
 
 }
 
@@ -34,36 +33,33 @@ h1 {
     font-weight: 600;
 }
 
-
 .wrapper {
     padding: 50px 25px;
+    margin: 0 auto;
 }
 
 .hero-img {
-    position: fixed;
-    z-index: -1;
+    position:fixed;
+    z-index: -100;
+    height: 400px;
     width: 100%;
-    max-width: 600px; /*change width for desktop later*/
+    background-repeat: no-repeat;
 }
 
 .break-word {
     word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* FORM */
 
 .todo-container {
     background-color: var(--div-bg);
-    padding: 20px 25px;
+    padding: 20px 32px;
     margin: 50px auto;
     border-radius: 7px;
-    display: flex;
-    place-items: center;
     margin-bottom: 15px;
-    /* position: absolute;
-    top: 50%;
-    left: 50%; */
-    /* transform: translate(-50%,-50%) */
 }
 
 #newTask input{
@@ -106,7 +102,6 @@ h1 {
 
 /* CHANGE THIS STATE IN JAVASCRIPT!  */
 .checked {
-
     background: linear-gradient(90deg,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
@@ -124,13 +119,14 @@ h1 {
 .task {
   padding: 20px 25px;
   display:flex;
+  flex-wrap: wrap;
   /* justify-content: space-between; */
   border-bottom: 1px solid var(--div-border);
-  height: 50px;
+  height: 80px;
   place-items: center;
   cursor: pointer;
   background-color: var(--div-bg);
-  
+ 
 }
 
 .remove {
@@ -145,7 +141,6 @@ h1 {
     margin-left: 10px;
     line-height: 1.5rem;
     width: 80%;
-    padding-right: 5px;
 }
 
 #noTasksLeft {
@@ -153,7 +148,6 @@ h1 {
     text-align: center;
     font-size: 15px;
     line-height: 2rem;
-
 }
 
 
@@ -180,6 +174,17 @@ h1 {
     border-radius: 10px;
 }
 
+.category {
+    cursor: pointer;
+
+}
+.active {
+    color: var(--hyperlink-blue);
+    font-weight: bold;
+}
+
+
+/* REDORDER TASKS */
 .reorder {
     text-align: center;
     margin: 25px auto;
@@ -213,4 +218,30 @@ h1 {
 .theme-switch-wrapper {
     display: flex;
     align-items:center
+}
+
+
+@media screen and (max-width: 375px) {
+    .hero-img {
+        background-image: var(--bg-mobile);
+        max-width: 100%;
+    }
+}
+@media screen and (min-width: 376px)  {
+    body {
+
+        margin: 0 auto;
+    }
+
+    .wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero-img {
+        background-image: var(--bg-desktop);
+        height: 300px;
+        background-size: 100% 100%;
+    }
+    
 }

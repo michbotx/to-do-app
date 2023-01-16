@@ -4,9 +4,9 @@ const body = document.querySelector("body")
 const themeIcon = document.querySelector("#icon")
 const headerImg = document.querySelector("#hero")
 
+
 function setTheme() {
     darkMode() 
-    setHeaderImg()
 }
 
 function setHeaderImg() {
@@ -16,6 +16,8 @@ function setHeaderImg() {
         headerImg.setAttribute("src", "images/bg-mobile-light.jpg")
     }
 }
+
+
 
 function darkMode() {
     // Check what is the current theme and get the opposite one
@@ -42,8 +44,9 @@ const noTasksLeft = document.querySelector("#noTasksLeft")
 const remove = document.querySelectorAll(".remove")
 
 let tasks = [];
-let activeTasks = [];
 let completedTasks = [];
+
+
 
 toDoText.addEventListener("change", createToDo)
 
@@ -67,22 +70,21 @@ function createToDo(e) {
                 `
         list.appendChild(toDo)
         e.target.value = ""
-        tasks.length +=1 
         bindRemove(toDo.querySelector(".remove"))
         bindDone(toDo.querySelector(".checkBtn"))
         noTasksNote();
         updateTaskCount();
-
     }
 }
 
 //bind remove and done functions to the buttons 
 
+
 const bindRemove = (btn) => {
     btn.addEventListener("click", () => {
         const mainPar = btn.parentElement
         mainPar.remove()
-        tasks.length -=1
+        tasks.pop()
         noTasksNote()
         updateTaskCount();
     })
@@ -95,7 +97,11 @@ const bindDone = (btn) => {
         btn.classList.toggle("checked")
         checkIcon.style.display = "block"
         mainPar.classList.toggle("completed")
+        mainPar.classList.contains("completed") 
+        ? completedTasks.push(mainPar) 
+        : completedTasks.pop(mainPar)
     })
+    
 }
 
 remove.forEach(bindRemove)
@@ -110,14 +116,12 @@ clearComplete.addEventListener("click", () => {
     for (let task of allTasks) {
         if (task.classList.contains("completed")) {
             task.remove()
-            tasks.length -=1
+            tasks.pop();
             updateTaskCount();
         }
     }
     noTasksNote();
 })
-
-
 
 
 //---- HANDLE ITEMS LEFT-----//
@@ -127,9 +131,11 @@ const itemsLeft = document.querySelector("#items-left")
 
 
 let updateTaskCount = () => {
-    const allTasks = document.querySelectorAll(".task")
-    console.log(allTasks.length)
-    itemsLeft.textContent = `${allTasks.length} items left`
+    let activeTasks = tasks.filter((task)=> {
+     console.log(tasks[task].classList)
+    })
+    console.log(activeTasks)
+    itemsLeft.textContent = `${activeTasks.length} items left`
 }
 
 const noTasksNote = () => {
@@ -139,25 +145,6 @@ const noTasksNote = () => {
 }
 
 
-
-
-// tasks.length = 0
-// for (let task of allTasks) {
-//     console.log(task)
-//     if (task.classList.contains("completed")) {
-//     task.remove()
-//     }}
-// itemsLeft.innerHTML = `${tasks.length} items left`
-// noTasksNote();
-//     itemsLeft.innerHTML = tasks.length === 0 
-//     ? "0 items left"
-//     : `${tasks.length} items left`
-// }
-
-
-// CLEAR COMPLETED
-
-
 //HANDLE COMPLETED
 
 // add a commpleted class to the task, 
@@ -165,8 +152,29 @@ const noTasksNote = () => {
 // !=completed, show the task 
 
 
+const category = document.querySelectorAll(".category")
 
-// tomorrow
-//fix the inputwidth, and do a flex wrap if the task goes over. (consider max char limit?)
+for (let cat of category ){ 
+    cat.addEventListener("click", (e) => {
+        let attr = e.target.id
+        if (attr === cat.id) {
+            updateUI();
+            cat.classList.add("active")
+            showCat(attr);
+        }
+    })
+}
 
-// add more padding to lengfthy tasks
+function updateUI() {
+    category.forEach((cat) => cat.classList.remove("active"))
+}
+
+function showCat(attr) {
+    if (attr === "all") {
+        tasks.forEach((task) => task.style.display = "flex")
+    } else if (attr === "completed") {
+        tasks.forEach((task) => task.style.display = "none")
+        completedTasks.forEach((task) => task.style.display = "flex")
+    } else if (attr === "active") {
+        tasks.forEach((task) => task.classList.contains("completed") ? task.style.display = "none" : task.style.display = "flex")
+ }}

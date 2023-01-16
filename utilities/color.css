@@ -20,6 +20,9 @@
     --dark-gray-blue: hsl(234, 11%, 52%);
     --very-dark-gray-blue: hsl(233, 14%, 35%);
     --near-black-blue: hsl(237, 14%, 26%);
+
+    --bg-mobile:  url("images/bg-mobile-light.jpg");
+    --bg-desktop: url("images/bg-desktop-light.jpg");
 }
 
 [data-theme="dark"] {
@@ -28,4 +31,6 @@
     --body-text: hsl(234, 39%, 85%);
     --shadow: rgba(12, 11, 11, 0.083);
     --div-border: hsl(237, 14%, 26%);
+    --bg-mobile:  url("images/bg-mobile-dark.jpg");
+    --bg-desktop: url("images/bg-desktop-dark.jpg");
 }
