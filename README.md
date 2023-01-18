@@ -51,6 +51,4 @@ Users should be able to:
 - refactor this code with react
 
 ## Author
-
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
 - Twitter - [@michbotx](https://www.twitter.com/michbotx)
