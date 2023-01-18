@@ -44,7 +44,6 @@ const remove = document.querySelectorAll(".remove")
 
 let tasks = [];
 let completedTasks = [];
-let idCount = 1;
 
 toDoText.addEventListener("change", createToDo)
 
@@ -71,7 +70,6 @@ function createToDo(e) {
         tasks.push(toDo)
         bindRemove(toDo.querySelector(".remove"))
         bindDone(toDo.querySelector(".checkBtn"))
-        noTasksNote();
         updateTaskCount();
         addDragandDrop(toDo);
 
@@ -87,7 +85,6 @@ const bindRemove = (btn) => {
         mainPar.remove()
         tasks.pop(mainPar)
         completedTasks.pop(mainPar)
-        noTasksNote()
         updateTaskCount();
     })
 }
@@ -103,8 +100,8 @@ const bindDone = (btn) => {
         ? completedTasks.push(mainPar) 
         : completedTasks.pop(mainPar)
         updateTaskCount();
+
     })
-    
 }
 
 remove.forEach(bindRemove)
@@ -123,9 +120,7 @@ clearComplete.addEventListener("click", () => {
             completedTasks.pop(task)
             updateTaskCount();
         }
-    }
-    noTasksNote();
-})
+    }})
 
 
 //---- HANDLE ITEMS LEFT-----//
@@ -135,22 +130,12 @@ const itemsLeft = document.querySelector("#items-left")
 const updateTaskCount = () => {
     let activeTasks = tasks.length - completedTasks.length
     itemsLeft.textContent = `${activeTasks} items left`
-}
-
-const noTasksNote = () => {
     noTasksLeft.style.display = tasks.length === 0
     ? "block" 
     : "none"
 }
 
-
-//HANDLE COMPLETED
-
-// add a commpleted class to the task, 
-//if user clicks on "completed", show only completed tasks (display.none method)
-// !=completed, show the task 
-
-
+//HANDLE FILTER TASKS
 const category = document.querySelectorAll(".category")
 
 for (let cat of category ){ 
@@ -193,7 +178,7 @@ let items = document.querySelectorAll(".list > li")
 function addDragandDrop(task) {
     task.setAttribute("draggable", true)
     task.addEventListener('dragstart', dragStart)
-    task.addEventListener('drop', dropped)
+    // task.addEventListener('drop', dropped)
     task.addEventListener('dragenter', cancelDefault)
     task.addEventListener('dragover', cancelDefault)
 }
@@ -229,9 +214,10 @@ function dragStart (e) {
 let index = tasks.indexOf(e.target)
     e.dataTransfer.setData('text/plain', index)
 }
-function dropped (e) {
 
-}
+// function dropped (e) {
+
+// }
 
 function cancelDefault (e) {
     e.preventDefault()
